@@ -5,7 +5,6 @@ package schema;
 message ProductWatched {
     string product = 1;
     string visitor = 2;
-    Metadata metadata = 5;
 }
 
 message Product {
@@ -21,7 +20,6 @@ message ProductMany {
 message CustomerBought {
     string product = 1;
     string customer = 2;
-    Metadata metadata = 5;
 }
 
 message CustomerBoughtMany {
@@ -35,11 +33,6 @@ message Customer {
 
 message CustomerMany {
     repeated Customer customerMany = 1;
-}
-
-message Metadata {
-    string name = 1;
-    string version = 2;
 }
 
 message Status {
