@@ -29,7 +29,7 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
-type ProductWatchedEvent struct {
+type ProductWatched struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -39,8 +39,8 @@ type ProductWatchedEvent struct {
 	Metadata *Metadata `protobuf:"bytes,5,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
-func (x *ProductWatchedEvent) Reset() {
-	*x = ProductWatchedEvent{}
+func (x *ProductWatched) Reset() {
+	*x = ProductWatched{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_schema_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -48,13 +48,13 @@ func (x *ProductWatchedEvent) Reset() {
 	}
 }
 
-func (x *ProductWatchedEvent) String() string {
+func (x *ProductWatched) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ProductWatchedEvent) ProtoMessage() {}
+func (*ProductWatched) ProtoMessage() {}
 
-func (x *ProductWatchedEvent) ProtoReflect() protoreflect.Message {
+func (x *ProductWatched) ProtoReflect() protoreflect.Message {
 	mi := &file_schema_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -66,201 +66,28 @@ func (x *ProductWatchedEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ProductWatchedEvent.ProtoReflect.Descriptor instead.
-func (*ProductWatchedEvent) Descriptor() ([]byte, []int) {
+// Deprecated: Use ProductWatched.ProtoReflect.Descriptor instead.
+func (*ProductWatched) Descriptor() ([]byte, []int) {
 	return file_schema_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ProductWatchedEvent) GetProduct() string {
+func (x *ProductWatched) GetProduct() string {
 	if x != nil {
 		return x.Product
 	}
 	return ""
 }
 
-func (x *ProductWatchedEvent) GetVisitor() string {
+func (x *ProductWatched) GetVisitor() string {
 	if x != nil {
 		return x.Visitor
 	}
 	return ""
 }
 
-func (x *ProductWatchedEvent) GetMetadata() *Metadata {
+func (x *ProductWatched) GetMetadata() *Metadata {
 	if x != nil {
 		return x.Metadata
-	}
-	return nil
-}
-
-type ProductWatchedResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Status  *ResponseStatus      `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Product *ProductWatchedEvent `protobuf:"bytes,2,opt,name=product,proto3" json:"product,omitempty"`
-}
-
-func (x *ProductWatchedResponse) Reset() {
-	*x = ProductWatchedResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ProductWatchedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ProductWatchedResponse) ProtoMessage() {}
-
-func (x *ProductWatchedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ProductWatchedResponse.ProtoReflect.Descriptor instead.
-func (*ProductWatchedResponse) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *ProductWatchedResponse) GetStatus() *ResponseStatus {
-	if x != nil {
-		return x.Status
-	}
-	return nil
-}
-
-func (x *ProductWatchedResponse) GetProduct() *ProductWatchedEvent {
-	if x != nil {
-		return x.Product
-	}
-	return nil
-}
-
-type CustomerBoughtEvent struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Product  string    `protobuf:"bytes,1,opt,name=product,proto3" json:"product,omitempty"`
-	Customer string    `protobuf:"bytes,2,opt,name=customer,proto3" json:"customer,omitempty"`
-	Metadata *Metadata `protobuf:"bytes,5,opt,name=metadata,proto3" json:"metadata,omitempty"`
-}
-
-func (x *CustomerBoughtEvent) Reset() {
-	*x = CustomerBoughtEvent{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CustomerBoughtEvent) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CustomerBoughtEvent) ProtoMessage() {}
-
-func (x *CustomerBoughtEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CustomerBoughtEvent.ProtoReflect.Descriptor instead.
-func (*CustomerBoughtEvent) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *CustomerBoughtEvent) GetProduct() string {
-	if x != nil {
-		return x.Product
-	}
-	return ""
-}
-
-func (x *CustomerBoughtEvent) GetCustomer() string {
-	if x != nil {
-		return x.Customer
-	}
-	return ""
-}
-
-func (x *CustomerBoughtEvent) GetMetadata() *Metadata {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-type CustomerBoughtResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Status  *ResponseStatus      `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Product *ProductWatchedEvent `protobuf:"bytes,2,opt,name=product,proto3" json:"product,omitempty"`
-}
-
-func (x *CustomerBoughtResponse) Reset() {
-	*x = CustomerBoughtResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CustomerBoughtResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CustomerBoughtResponse) ProtoMessage() {}
-
-func (x *CustomerBoughtResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CustomerBoughtResponse.ProtoReflect.Descriptor instead.
-func (*CustomerBoughtResponse) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *CustomerBoughtResponse) GetStatus() *ResponseStatus {
-	if x != nil {
-		return x.Status
-	}
-	return nil
-}
-
-func (x *CustomerBoughtResponse) GetProduct() *ProductWatchedEvent {
-	if x != nil {
-		return x.Product
 	}
 	return nil
 }
@@ -278,7 +105,7 @@ type Product struct {
 func (x *Product) Reset() {
 	*x = Product{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[4]
+		mi := &file_schema_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -291,7 +118,7 @@ func (x *Product) String() string {
 func (*Product) ProtoMessage() {}
 
 func (x *Product) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[4]
+	mi := &file_schema_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -304,7 +131,7 @@ func (x *Product) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Product.ProtoReflect.Descriptor instead.
 func (*Product) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{4}
+	return file_schema_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Product) GetName() string {
@@ -339,7 +166,7 @@ type ProductMany struct {
 func (x *ProductMany) Reset() {
 	*x = ProductMany{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[5]
+		mi := &file_schema_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -352,7 +179,7 @@ func (x *ProductMany) String() string {
 func (*ProductMany) ProtoMessage() {}
 
 func (x *ProductMany) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[5]
+	mi := &file_schema_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -365,12 +192,75 @@ func (x *ProductMany) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProductMany.ProtoReflect.Descriptor instead.
 func (*ProductMany) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{5}
+	return file_schema_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ProductMany) GetProductMany() []*Product {
 	if x != nil {
 		return x.ProductMany
+	}
+	return nil
+}
+
+type CustomerBought struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Product  string    `protobuf:"bytes,1,opt,name=product,proto3" json:"product,omitempty"`
+	Customer string    `protobuf:"bytes,2,opt,name=customer,proto3" json:"customer,omitempty"`
+	Metadata *Metadata `protobuf:"bytes,5,opt,name=metadata,proto3" json:"metadata,omitempty"`
+}
+
+func (x *CustomerBought) Reset() {
+	*x = CustomerBought{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_schema_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CustomerBought) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomerBought) ProtoMessage() {}
+
+func (x *CustomerBought) ProtoReflect() protoreflect.Message {
+	mi := &file_schema_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomerBought.ProtoReflect.Descriptor instead.
+func (*CustomerBought) Descriptor() ([]byte, []int) {
+	return file_schema_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CustomerBought) GetProduct() string {
+	if x != nil {
+		return x.Product
+	}
+	return ""
+}
+
+func (x *CustomerBought) GetCustomer() string {
+	if x != nil {
+		return x.Customer
+	}
+	return ""
+}
+
+func (x *CustomerBought) GetMetadata() *Metadata {
+	if x != nil {
+		return x.Metadata
 	}
 	return nil
 }
@@ -387,7 +277,7 @@ type Customer struct {
 func (x *Customer) Reset() {
 	*x = Customer{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[6]
+		mi := &file_schema_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -400,7 +290,7 @@ func (x *Customer) String() string {
 func (*Customer) ProtoMessage() {}
 
 func (x *Customer) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[6]
+	mi := &file_schema_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -413,7 +303,7 @@ func (x *Customer) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Customer.ProtoReflect.Descriptor instead.
 func (*Customer) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{6}
+	return file_schema_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Customer) GetName() string {
@@ -441,7 +331,7 @@ type CustomerMany struct {
 func (x *CustomerMany) Reset() {
 	*x = CustomerMany{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[7]
+		mi := &file_schema_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -454,7 +344,7 @@ func (x *CustomerMany) String() string {
 func (*CustomerMany) ProtoMessage() {}
 
 func (x *CustomerMany) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[7]
+	mi := &file_schema_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -467,7 +357,7 @@ func (x *CustomerMany) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CustomerMany.ProtoReflect.Descriptor instead.
 func (*CustomerMany) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{7}
+	return file_schema_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CustomerMany) GetCustomerMany() []*Customer {
@@ -489,7 +379,7 @@ type Metadata struct {
 func (x *Metadata) Reset() {
 	*x = Metadata{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[8]
+		mi := &file_schema_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -502,7 +392,7 @@ func (x *Metadata) String() string {
 func (*Metadata) ProtoMessage() {}
 
 func (x *Metadata) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[8]
+	mi := &file_schema_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -515,7 +405,7 @@ func (x *Metadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Metadata.ProtoReflect.Descriptor instead.
 func (*Metadata) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{8}
+	return file_schema_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Metadata) GetName() string {
@@ -532,6 +422,53 @@ func (x *Metadata) GetVersion() string {
 	return ""
 }
 
+type Status struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status uint32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+}
+
+func (x *Status) Reset() {
+	*x = Status{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_schema_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Status) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Status) ProtoMessage() {}
+
+func (x *Status) ProtoReflect() protoreflect.Message {
+	mi := &file_schema_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Status.ProtoReflect.Descriptor instead.
+func (*Status) Descriptor() ([]byte, []int) {
+	return file_schema_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *Status) GetStatus() uint32 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
 type Empty struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -541,7 +478,7 @@ type Empty struct {
 func (x *Empty) Reset() {
 	*x = Empty{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[9]
+		mi := &file_schema_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -554,7 +491,7 @@ func (x *Empty) String() string {
 func (*Empty) ProtoMessage() {}
 
 func (x *Empty) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[9]
+	mi := &file_schema_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -567,133 +504,70 @@ func (x *Empty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Empty.ProtoReflect.Descriptor instead.
 func (*Empty) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{9}
-}
-
-type ResponseStatus struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Status uint32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
-}
-
-func (x *ResponseStatus) Reset() {
-	*x = ResponseStatus{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_schema_proto_msgTypes[10]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ResponseStatus) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResponseStatus) ProtoMessage() {}
-
-func (x *ResponseStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_schema_proto_msgTypes[10]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResponseStatus.ProtoReflect.Descriptor instead.
-func (*ResponseStatus) Descriptor() ([]byte, []int) {
-	return file_schema_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *ResponseStatus) GetStatus() uint32 {
-	if x != nil {
-		return x.Status
-	}
-	return 0
+	return file_schema_proto_rawDescGZIP(), []int{8}
 }
 
 var File_schema_proto protoreflect.FileDescriptor
 
 var file_schema_proto_rawDesc = []byte{
 	0x0a, 0x0c, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06,
-	0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x22, 0x77, 0x0a, 0x13, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63,
-	0x74, 0x57, 0x61, 0x74, 0x63, 0x68, 0x65, 0x64, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x18, 0x0a,
-	0x07, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
-	0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x76, 0x69, 0x73, 0x69, 0x74,
-	0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x76, 0x69, 0x73, 0x69, 0x74, 0x6f,
-	0x72, 0x12, 0x2c, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x05, 0x20,
-	0x01, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22,
-	0x7f, 0x0a, 0x16, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x57, 0x61, 0x74, 0x63, 0x68, 0x65,
-	0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x06, 0x73, 0x74, 0x61,
-	0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x63, 0x68, 0x65,
-	0x6d, 0x61, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x53, 0x74, 0x61, 0x74, 0x75,
-	0x73, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x35, 0x0a, 0x07, 0x70, 0x72, 0x6f,
-	0x64, 0x75, 0x63, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x73, 0x63, 0x68,
+	0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x22, 0x72, 0x0a, 0x0e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63,
+	0x74, 0x57, 0x61, 0x74, 0x63, 0x68, 0x65, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x72, 0x6f, 0x64,
+	0x75, 0x63, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x70, 0x72, 0x6f, 0x64, 0x75,
+	0x63, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x76, 0x69, 0x73, 0x69, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x76, 0x69, 0x73, 0x69, 0x74, 0x6f, 0x72, 0x12, 0x2c, 0x0a, 0x08,
+	0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x10,
+	0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22, 0x4f, 0x0a, 0x07, 0x50, 0x72,
+	0x6f, 0x64, 0x75, 0x63, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x77, 0x61, 0x74,
+	0x63, 0x68, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x77, 0x61, 0x74, 0x63,
+	0x68, 0x65, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x62, 0x6f, 0x75, 0x67, 0x68, 0x74, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x62, 0x6f, 0x75, 0x67, 0x68, 0x74, 0x22, 0x40, 0x0a, 0x0b, 0x50,
+	0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x4d, 0x61, 0x6e, 0x79, 0x12, 0x31, 0x0a, 0x0b, 0x70, 0x72,
+	0x6f, 0x64, 0x75, 0x63, 0x74, 0x4d, 0x61, 0x6e, 0x79, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32,
+	0x0f, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
+	0x52, 0x0b, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x4d, 0x61, 0x6e, 0x79, 0x22, 0x74, 0x0a,
+	0x0e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x42, 0x6f, 0x75, 0x67, 0x68, 0x74, 0x12,
+	0x18, 0x0a, 0x07, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x07, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x63, 0x75, 0x73,
+	0x74, 0x6f, 0x6d, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x63, 0x75, 0x73,
+	0x74, 0x6f, 0x6d, 0x65, 0x72, 0x12, 0x2c, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61,
+	0x2e, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x22, 0x3a, 0x0a, 0x08, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x12,
+	0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e,
+	0x61, 0x6d, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x73, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x73, 0x22,
+	0x44, 0x0a, 0x0c, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x4d, 0x61, 0x6e, 0x79, 0x12,
+	0x34, 0x0a, 0x0c, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x4d, 0x61, 0x6e, 0x79, 0x18,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x43,
+	0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x52, 0x0c, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
+	0x72, 0x4d, 0x61, 0x6e, 0x79, 0x22, 0x38, 0x0a, 0x08, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x22,
+	0x20, 0x0a, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75,
+	0x73, 0x22, 0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x32, 0x94, 0x01, 0x0a, 0x09, 0x50,
+	0x75, 0x62, 0x6c, 0x69, 0x73, 0x68, 0x65, 0x72, 0x12, 0x42, 0x0a, 0x0e, 0x50, 0x75, 0x62, 0x6c,
+	0x69, 0x73, 0x68, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x12, 0x16, 0x2e, 0x73, 0x63, 0x68,
 	0x65, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x57, 0x61, 0x74, 0x63, 0x68,
-	0x65, 0x64, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x07, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
-	0x22, 0x79, 0x0a, 0x13, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x42, 0x6f, 0x75, 0x67,
-	0x68, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x72, 0x6f, 0x64, 0x75,
-	0x63, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63,
-	0x74, 0x12, 0x1a, 0x0a, 0x08, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x08, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x12, 0x2c, 0x0a,
-	0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x10, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22, 0x7f, 0x0a, 0x16, 0x43,
-	0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x42, 0x6f, 0x75, 0x67, 0x68, 0x74, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x06, 0x73,
-	0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x35, 0x0a, 0x07, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e,
-	0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x57, 0x61, 0x74, 0x63, 0x68, 0x65, 0x64, 0x45, 0x76,
-	0x65, 0x6e, 0x74, 0x52, 0x07, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x22, 0x4f, 0x0a, 0x07,
-	0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x77,
-	0x61, 0x74, 0x63, 0x68, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x77, 0x61,
-	0x74, 0x63, 0x68, 0x65, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x62, 0x6f, 0x75, 0x67, 0x68, 0x74, 0x18,
-	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x62, 0x6f, 0x75, 0x67, 0x68, 0x74, 0x22, 0x40, 0x0a,
-	0x0b, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x4d, 0x61, 0x6e, 0x79, 0x12, 0x31, 0x0a, 0x0b,
-	0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x4d, 0x61, 0x6e, 0x79, 0x18, 0x01, 0x20, 0x03, 0x28,
-	0x0b, 0x32, 0x0f, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75,
-	0x63, 0x74, 0x52, 0x0b, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x4d, 0x61, 0x6e, 0x79, 0x22,
-	0x3a, 0x0a, 0x08, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x6e,
-	0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12,
-	0x1a, 0x0a, 0x08, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x03, 0x52, 0x08, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x73, 0x22, 0x44, 0x0a, 0x0c, 0x43,
-	0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x4d, 0x61, 0x6e, 0x79, 0x12, 0x34, 0x0a, 0x0c, 0x63,
-	0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x4d, 0x61, 0x6e, 0x79, 0x18, 0x01, 0x20, 0x03, 0x28,
-	0x0b, 0x32, 0x10, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f,
-	0x6d, 0x65, 0x72, 0x52, 0x0c, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x4d, 0x61, 0x6e,
-	0x79, 0x22, 0x38, 0x0a, 0x08, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x12, 0x0a,
-	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d,
-	0x65, 0x12, 0x18, 0x0a, 0x07, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x07, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x22, 0x07, 0x0a, 0x05, 0x45,
-	0x6d, 0x70, 0x74, 0x79, 0x22, 0x28, 0x0a, 0x0e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0x9b,
-	0x01, 0x0a, 0x04, 0x50, 0x6f, 0x73, 0x74, 0x12, 0x48, 0x0a, 0x07, 0x50, 0x72, 0x6f, 0x64, 0x75,
-	0x63, 0x74, 0x12, 0x1b, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x64,
-	0x75, 0x63, 0x74, 0x57, 0x61, 0x74, 0x63, 0x68, 0x65, 0x64, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x1a,
-	0x1e, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
-	0x57, 0x61, 0x74, 0x63, 0x68, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x00, 0x12, 0x49, 0x0a, 0x08, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x12, 0x1b, 0x2e,
-	0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x42,
-	0x6f, 0x75, 0x67, 0x68, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x1a, 0x1e, 0x2e, 0x73, 0x63, 0x68,
-	0x65, 0x6d, 0x61, 0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x42, 0x6f, 0x75, 0x67,
-	0x68, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x32, 0x69, 0x0a, 0x03,
-	0x47, 0x65, 0x74, 0x12, 0x2f, 0x0a, 0x07, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x12, 0x0d,
-	0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x13, 0x2e,
-	0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x4d, 0x61,
-	0x6e, 0x79, 0x22, 0x00, 0x12, 0x31, 0x0a, 0x08, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72,
+	0x65, 0x64, 0x1a, 0x16, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x64,
+	0x75, 0x63, 0x74, 0x57, 0x61, 0x74, 0x63, 0x68, 0x65, 0x64, 0x22, 0x00, 0x12, 0x43, 0x0a, 0x0f,
+	0x50, 0x75, 0x62, 0x6c, 0x69, 0x73, 0x68, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x12,
+	0x16, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
+	0x72, 0x42, 0x6f, 0x75, 0x67, 0x68, 0x74, 0x1a, 0x16, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61,
+	0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x42, 0x6f, 0x75, 0x67, 0x68, 0x74, 0x22,
+	0x00, 0x32, 0x7d, 0x0a, 0x09, 0x49, 0x6e, 0x73, 0x70, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x12, 0x36,
+	0x0a, 0x0e, 0x49, 0x6e, 0x73, 0x70, 0x65, 0x63, 0x74, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
 	0x12, 0x0d, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a,
-	0x14, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
-	0x72, 0x4d, 0x61, 0x6e, 0x79, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x13, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
+	0x4d, 0x61, 0x6e, 0x79, 0x22, 0x00, 0x12, 0x38, 0x0a, 0x0f, 0x49, 0x6e, 0x73, 0x70, 0x65, 0x63,
+	0x74, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x12, 0x0d, 0x2e, 0x73, 0x63, 0x68, 0x65,
+	0x6d, 0x61, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x14, 0x2e, 0x73, 0x63, 0x68, 0x65, 0x6d,
+	0x61, 0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x4d, 0x61, 0x6e, 0x79, 0x22, 0x00,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -708,42 +582,36 @@ func file_schema_proto_rawDescGZIP() []byte {
 	return file_schema_proto_rawDescData
 }
 
-var file_schema_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_schema_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_schema_proto_goTypes = []interface{}{
-	(*ProductWatchedEvent)(nil),    // 0: schema.ProductWatchedEvent
-	(*ProductWatchedResponse)(nil), // 1: schema.ProductWatchedResponse
-	(*CustomerBoughtEvent)(nil),    // 2: schema.CustomerBoughtEvent
-	(*CustomerBoughtResponse)(nil), // 3: schema.CustomerBoughtResponse
-	(*Product)(nil),                // 4: schema.Product
-	(*ProductMany)(nil),            // 5: schema.ProductMany
-	(*Customer)(nil),               // 6: schema.Customer
-	(*CustomerMany)(nil),           // 7: schema.CustomerMany
-	(*Metadata)(nil),               // 8: schema.Metadata
-	(*Empty)(nil),                  // 9: schema.Empty
-	(*ResponseStatus)(nil),         // 10: schema.ResponseStatus
+	(*ProductWatched)(nil), // 0: schema.ProductWatched
+	(*Product)(nil),        // 1: schema.Product
+	(*ProductMany)(nil),    // 2: schema.ProductMany
+	(*CustomerBought)(nil), // 3: schema.CustomerBought
+	(*Customer)(nil),       // 4: schema.Customer
+	(*CustomerMany)(nil),   // 5: schema.CustomerMany
+	(*Metadata)(nil),       // 6: schema.Metadata
+	(*Status)(nil),         // 7: schema.Status
+	(*Empty)(nil),          // 8: schema.Empty
 }
 var file_schema_proto_depIdxs = []int32{
-	8,  // 0: schema.ProductWatchedEvent.metadata:type_name -> schema.Metadata
-	10, // 1: schema.ProductWatchedResponse.status:type_name -> schema.ResponseStatus
-	0,  // 2: schema.ProductWatchedResponse.product:type_name -> schema.ProductWatchedEvent
-	8,  // 3: schema.CustomerBoughtEvent.metadata:type_name -> schema.Metadata
-	10, // 4: schema.CustomerBoughtResponse.status:type_name -> schema.ResponseStatus
-	0,  // 5: schema.CustomerBoughtResponse.product:type_name -> schema.ProductWatchedEvent
-	4,  // 6: schema.ProductMany.productMany:type_name -> schema.Product
-	6,  // 7: schema.CustomerMany.customerMany:type_name -> schema.Customer
-	0,  // 8: schema.Post.Product:input_type -> schema.ProductWatchedEvent
-	2,  // 9: schema.Post.Customer:input_type -> schema.CustomerBoughtEvent
-	9,  // 10: schema.Get.Product:input_type -> schema.Empty
-	9,  // 11: schema.Get.Customer:input_type -> schema.Empty
-	1,  // 12: schema.Post.Product:output_type -> schema.ProductWatchedResponse
-	3,  // 13: schema.Post.Customer:output_type -> schema.CustomerBoughtResponse
-	5,  // 14: schema.Get.Product:output_type -> schema.ProductMany
-	7,  // 15: schema.Get.Customer:output_type -> schema.CustomerMany
-	12, // [12:16] is the sub-list for method output_type
-	8,  // [8:12] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	6, // 0: schema.ProductWatched.metadata:type_name -> schema.Metadata
+	1, // 1: schema.ProductMany.productMany:type_name -> schema.Product
+	6, // 2: schema.CustomerBought.metadata:type_name -> schema.Metadata
+	4, // 3: schema.CustomerMany.customerMany:type_name -> schema.Customer
+	0, // 4: schema.Publisher.PublishProduct:input_type -> schema.ProductWatched
+	3, // 5: schema.Publisher.PublishCustomer:input_type -> schema.CustomerBought
+	8, // 6: schema.Inspector.InspectProduct:input_type -> schema.Empty
+	8, // 7: schema.Inspector.InspectCustomer:input_type -> schema.Empty
+	0, // 8: schema.Publisher.PublishProduct:output_type -> schema.ProductWatched
+	3, // 9: schema.Publisher.PublishCustomer:output_type -> schema.CustomerBought
+	2, // 10: schema.Inspector.InspectProduct:output_type -> schema.ProductMany
+	5, // 11: schema.Inspector.InspectCustomer:output_type -> schema.CustomerMany
+	8, // [8:12] is the sub-list for method output_type
+	4, // [4:8] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_schema_proto_init() }
@@ -753,7 +621,7 @@ func file_schema_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_schema_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ProductWatchedEvent); i {
+			switch v := v.(*ProductWatched); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -765,42 +633,6 @@ func file_schema_proto_init() {
 			}
 		}
 		file_schema_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ProductWatchedResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_schema_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CustomerBoughtEvent); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_schema_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CustomerBoughtResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_schema_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Product); i {
 			case 0:
 				return &v.state
@@ -812,7 +644,7 @@ func file_schema_proto_init() {
 				return nil
 			}
 		}
-		file_schema_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_schema_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ProductMany); i {
 			case 0:
 				return &v.state
@@ -824,7 +656,19 @@ func file_schema_proto_init() {
 				return nil
 			}
 		}
-		file_schema_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_schema_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CustomerBought); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_schema_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Customer); i {
 			case 0:
 				return &v.state
@@ -836,7 +680,7 @@ func file_schema_proto_init() {
 				return nil
 			}
 		}
-		file_schema_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_schema_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CustomerMany); i {
 			case 0:
 				return &v.state
@@ -848,7 +692,7 @@ func file_schema_proto_init() {
 				return nil
 			}
 		}
-		file_schema_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_schema_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Metadata); i {
 			case 0:
 				return &v.state
@@ -860,8 +704,8 @@ func file_schema_proto_init() {
 				return nil
 			}
 		}
-		file_schema_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Empty); i {
+		file_schema_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Status); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -872,8 +716,8 @@ func file_schema_proto_init() {
 				return nil
 			}
 		}
-		file_schema_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ResponseStatus); i {
+		file_schema_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Empty); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -891,7 +735,7 @@ func file_schema_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_schema_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   2,
 		},
@@ -913,216 +757,216 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// PostClient is the client API for Post service.
+// PublisherClient is the client API for Publisher service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type PostClient interface {
-	Product(ctx context.Context, in *ProductWatchedEvent, opts ...grpc.CallOption) (*ProductWatchedResponse, error)
-	Customer(ctx context.Context, in *CustomerBoughtEvent, opts ...grpc.CallOption) (*CustomerBoughtResponse, error)
+type PublisherClient interface {
+	PublishProduct(ctx context.Context, in *ProductWatched, opts ...grpc.CallOption) (*ProductWatched, error)
+	PublishCustomer(ctx context.Context, in *CustomerBought, opts ...grpc.CallOption) (*CustomerBought, error)
 }
 
-type postClient struct {
+type publisherClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPostClient(cc grpc.ClientConnInterface) PostClient {
-	return &postClient{cc}
+func NewPublisherClient(cc grpc.ClientConnInterface) PublisherClient {
+	return &publisherClient{cc}
 }
 
-func (c *postClient) Product(ctx context.Context, in *ProductWatchedEvent, opts ...grpc.CallOption) (*ProductWatchedResponse, error) {
-	out := new(ProductWatchedResponse)
-	err := c.cc.Invoke(ctx, "/schema.Post/Product", in, out, opts...)
+func (c *publisherClient) PublishProduct(ctx context.Context, in *ProductWatched, opts ...grpc.CallOption) (*ProductWatched, error) {
+	out := new(ProductWatched)
+	err := c.cc.Invoke(ctx, "/schema.Publisher/PublishProduct", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *postClient) Customer(ctx context.Context, in *CustomerBoughtEvent, opts ...grpc.CallOption) (*CustomerBoughtResponse, error) {
-	out := new(CustomerBoughtResponse)
-	err := c.cc.Invoke(ctx, "/schema.Post/Customer", in, out, opts...)
+func (c *publisherClient) PublishCustomer(ctx context.Context, in *CustomerBought, opts ...grpc.CallOption) (*CustomerBought, error) {
+	out := new(CustomerBought)
+	err := c.cc.Invoke(ctx, "/schema.Publisher/PublishCustomer", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PostServer is the server API for Post service.
-type PostServer interface {
-	Product(context.Context, *ProductWatchedEvent) (*ProductWatchedResponse, error)
-	Customer(context.Context, *CustomerBoughtEvent) (*CustomerBoughtResponse, error)
+// PublisherServer is the server API for Publisher service.
+type PublisherServer interface {
+	PublishProduct(context.Context, *ProductWatched) (*ProductWatched, error)
+	PublishCustomer(context.Context, *CustomerBought) (*CustomerBought, error)
 }
 
-// UnimplementedPostServer can be embedded to have forward compatible implementations.
-type UnimplementedPostServer struct {
+// UnimplementedPublisherServer can be embedded to have forward compatible implementations.
+type UnimplementedPublisherServer struct {
 }
 
-func (*UnimplementedPostServer) Product(context.Context, *ProductWatchedEvent) (*ProductWatchedResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Product not implemented")
+func (*UnimplementedPublisherServer) PublishProduct(context.Context, *ProductWatched) (*ProductWatched, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PublishProduct not implemented")
 }
-func (*UnimplementedPostServer) Customer(context.Context, *CustomerBoughtEvent) (*CustomerBoughtResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Customer not implemented")
-}
-
-func RegisterPostServer(s *grpc.Server, srv PostServer) {
-	s.RegisterService(&_Post_serviceDesc, srv)
+func (*UnimplementedPublisherServer) PublishCustomer(context.Context, *CustomerBought) (*CustomerBought, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PublishCustomer not implemented")
 }
 
-func _Post_Product_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProductWatchedEvent)
+func RegisterPublisherServer(s *grpc.Server, srv PublisherServer) {
+	s.RegisterService(&_Publisher_serviceDesc, srv)
+}
+
+func _Publisher_PublishProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProductWatched)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PostServer).Product(ctx, in)
+		return srv.(PublisherServer).PublishProduct(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/schema.Post/Product",
+		FullMethod: "/schema.Publisher/PublishProduct",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PostServer).Product(ctx, req.(*ProductWatchedEvent))
+		return srv.(PublisherServer).PublishProduct(ctx, req.(*ProductWatched))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Post_Customer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CustomerBoughtEvent)
+func _Publisher_PublishCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CustomerBought)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PostServer).Customer(ctx, in)
+		return srv.(PublisherServer).PublishCustomer(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/schema.Post/Customer",
+		FullMethod: "/schema.Publisher/PublishCustomer",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PostServer).Customer(ctx, req.(*CustomerBoughtEvent))
+		return srv.(PublisherServer).PublishCustomer(ctx, req.(*CustomerBought))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Post_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "schema.Post",
-	HandlerType: (*PostServer)(nil),
+var _Publisher_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "schema.Publisher",
+	HandlerType: (*PublisherServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Product",
-			Handler:    _Post_Product_Handler,
+			MethodName: "PublishProduct",
+			Handler:    _Publisher_PublishProduct_Handler,
 		},
 		{
-			MethodName: "Customer",
-			Handler:    _Post_Customer_Handler,
+			MethodName: "PublishCustomer",
+			Handler:    _Publisher_PublishCustomer_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "schema.proto",
 }
 
-// GetClient is the client API for Get service.
+// InspectorClient is the client API for Inspector service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type GetClient interface {
-	Product(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*ProductMany, error)
-	Customer(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*CustomerMany, error)
+type InspectorClient interface {
+	InspectProduct(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*ProductMany, error)
+	InspectCustomer(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*CustomerMany, error)
 }
 
-type getClient struct {
+type inspectorClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewGetClient(cc grpc.ClientConnInterface) GetClient {
-	return &getClient{cc}
+func NewInspectorClient(cc grpc.ClientConnInterface) InspectorClient {
+	return &inspectorClient{cc}
 }
 
-func (c *getClient) Product(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*ProductMany, error) {
+func (c *inspectorClient) InspectProduct(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*ProductMany, error) {
 	out := new(ProductMany)
-	err := c.cc.Invoke(ctx, "/schema.Get/Product", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/schema.Inspector/InspectProduct", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *getClient) Customer(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*CustomerMany, error) {
+func (c *inspectorClient) InspectCustomer(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*CustomerMany, error) {
 	out := new(CustomerMany)
-	err := c.cc.Invoke(ctx, "/schema.Get/Customer", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/schema.Inspector/InspectCustomer", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// GetServer is the server API for Get service.
-type GetServer interface {
-	Product(context.Context, *Empty) (*ProductMany, error)
-	Customer(context.Context, *Empty) (*CustomerMany, error)
+// InspectorServer is the server API for Inspector service.
+type InspectorServer interface {
+	InspectProduct(context.Context, *Empty) (*ProductMany, error)
+	InspectCustomer(context.Context, *Empty) (*CustomerMany, error)
 }
 
-// UnimplementedGetServer can be embedded to have forward compatible implementations.
-type UnimplementedGetServer struct {
+// UnimplementedInspectorServer can be embedded to have forward compatible implementations.
+type UnimplementedInspectorServer struct {
 }
 
-func (*UnimplementedGetServer) Product(context.Context, *Empty) (*ProductMany, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Product not implemented")
+func (*UnimplementedInspectorServer) InspectProduct(context.Context, *Empty) (*ProductMany, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InspectProduct not implemented")
 }
-func (*UnimplementedGetServer) Customer(context.Context, *Empty) (*CustomerMany, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Customer not implemented")
-}
-
-func RegisterGetServer(s *grpc.Server, srv GetServer) {
-	s.RegisterService(&_Get_serviceDesc, srv)
+func (*UnimplementedInspectorServer) InspectCustomer(context.Context, *Empty) (*CustomerMany, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InspectCustomer not implemented")
 }
 
-func _Get_Product_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func RegisterInspectorServer(s *grpc.Server, srv InspectorServer) {
+	s.RegisterService(&_Inspector_serviceDesc, srv)
+}
+
+func _Inspector_InspectProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GetServer).Product(ctx, in)
+		return srv.(InspectorServer).InspectProduct(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/schema.Get/Product",
+		FullMethod: "/schema.Inspector/InspectProduct",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetServer).Product(ctx, req.(*Empty))
+		return srv.(InspectorServer).InspectProduct(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Get_Customer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Inspector_InspectCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GetServer).Customer(ctx, in)
+		return srv.(InspectorServer).InspectCustomer(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/schema.Get/Customer",
+		FullMethod: "/schema.Inspector/InspectCustomer",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetServer).Customer(ctx, req.(*Empty))
+		return srv.(InspectorServer).InspectCustomer(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Get_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "schema.Get",
-	HandlerType: (*GetServer)(nil),
+var _Inspector_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "schema.Inspector",
+	HandlerType: (*InspectorServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Product",
-			Handler:    _Get_Product_Handler,
+			MethodName: "InspectProduct",
+			Handler:    _Inspector_InspectProduct_Handler,
 		},
 		{
-			MethodName: "Customer",
-			Handler:    _Get_Customer_Handler,
+			MethodName: "InspectCustomer",
+			Handler:    _Inspector_InspectCustomer_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

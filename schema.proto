@@ -2,30 +2,10 @@ syntax = "proto3";
 
 package schema;
 
-
-message ProductWatchedEvent {
+message ProductWatched {
     string product = 1;
     string visitor = 2;
     Metadata metadata = 5;
-}
-
-
-message ProductWatchedResponse {
-    ResponseStatus status = 1;
-    ProductWatchedEvent product = 2;
-}
-
-
-message CustomerBoughtEvent {
-    string product = 1;
-    string customer = 2;
-    Metadata metadata = 5;
-}
-
-
-message CustomerBoughtResponse {
-    ResponseStatus status = 1;
-    ProductWatchedEvent product = 2;
 }
 
 message Product {
@@ -38,6 +18,11 @@ message ProductMany {
     repeated Product productMany = 1;
 }
 
+message CustomerBought {
+    string product = 1;
+    string customer = 2;
+    Metadata metadata = 5;
+}
 
 message Customer {
     string name = 1;
@@ -53,20 +38,18 @@ message Metadata {
     string version = 2;
 }
 
-message Empty {}
-
-
-message ResponseStatus {
+message Status {
     uint32 status = 1;
 }
 
+message Empty {}
 
-service Post {
-    rpc Product(ProductWatchedEvent) returns (ProductWatchedResponse) {}
-    rpc Customer(CustomerBoughtEvent) returns (CustomerBoughtResponse) {}
+service Publisher {
+    rpc PublishProduct(ProductWatched) returns (ProductWatched) {}
+    rpc PublishCustomer(CustomerBought) returns (CustomerBought) {}
 }
 
-service Get {
-    rpc Product(Empty) returns (ProductMany) {}
-    rpc Customer(Empty) returns (CustomerMany) {}
+service Inspector {
+    rpc InspectProduct(Empty) returns (ProductMany) {}
+    rpc InspectCustomer(Empty) returns (CustomerMany) {}
 }
