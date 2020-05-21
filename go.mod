@@ -1,4 +1,4 @@
-module github.com/micrexIT/phi-architecture-example/schema
+module github.com/micrexIT/phi-architecture-example-protobuf
 
 go 1.14
 
