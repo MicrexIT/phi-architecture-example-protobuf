@@ -24,6 +24,10 @@ message CustomerBought {
     Metadata metadata = 5;
 }
 
+message CustomerBoughtMany {
+    repeated CustomerBought customerBoughtMany = 1;
+}
+
 message Customer {
     string name = 1;
     int64 products = 2;
@@ -45,8 +49,8 @@ message Status {
 message Empty {}
 
 service Publisher {
-    rpc PublishProduct(ProductWatched) returns (ProductWatched) {}
-    rpc PublishCustomer(CustomerBought) returns (CustomerBought) {}
+    rpc PublishProduct(ProductWatched) returns (Status) {}
+    rpc PublishCustomer(CustomerBoughtMany) returns (Status) {}
 }
 
 service Inspector {
