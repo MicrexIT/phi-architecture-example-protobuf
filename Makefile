@@ -1,4 +1,4 @@
-create:
+compile:
 	protoc --go_out=plugins=grpc:../schema schema.proto
 
 install:

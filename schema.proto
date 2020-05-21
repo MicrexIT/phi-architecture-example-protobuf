@@ -3,25 +3,70 @@ syntax = "proto3";
 package schema;
 
 
-message RequestEnvelope {
-    string service_method = 1;
-    fixed64 seq = 2;
+message ProductWatchedEvent {
+    string product = 1;
+    string visitor = 2;
+    Metadata metadata = 5;
 }
 
-message ResponseEnvelope {
-    string service_method = 1;
-    fixed64 seq = 2;
-    string error = 3;
+
+message ProductWatchedResponse {
+    ResponseStatus status = 1;
+    ProductWatchedEvent product = 2;
 }
 
-message Request {
+
+message CustomerBoughtEvent {
+    string product = 1;
+    string customer = 2;
+    Metadata metadata = 5;
+}
+
+
+message CustomerBoughtResponse {
+    ResponseStatus status = 1;
+    ProductWatchedEvent product = 2;
+}
+
+message Product {
     string name = 1;
+    string watched = 2;
+    string bought = 3;
 }
 
-message Response {
-    string msg = 1;
+message ProductMany {
+    repeated Product productMany = 1;
 }
 
-service Kittens {
-    rpc Hello(Request) returns (Response) {}
+
+message Customer {
+    string name = 1;
+    int64 products = 2;
+}
+
+message CustomerMany {
+    repeated Customer customerMany = 1;
+}
+
+message Metadata {
+    string name = 1;
+    string version = 2;
+}
+
+message Empty {}
+
+
+message ResponseStatus {
+    uint32 status = 1;
+}
+
+
+service Post {
+    rpc Product(ProductWatchedEvent) returns (ProductWatchedResponse) {}
+    rpc Customer(CustomerBoughtEvent) returns (CustomerBoughtResponse) {}
+}
+
+service Get {
+    rpc Product(Empty) returns (ProductMany) {}
+    rpc Customer(Empty) returns (CustomerMany) {}
 }
