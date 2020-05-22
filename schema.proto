@@ -9,8 +9,8 @@ message ProductWatched {
 
 message Product {
     string name = 1;
-    string watched = 2;
-    string bought = 3;
+    int64 watched = 2;
+    int64 bought = 3;
 }
 
 message ProductMany {
