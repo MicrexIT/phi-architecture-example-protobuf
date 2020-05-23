@@ -13,10 +13,6 @@ message Product {
     int64 bought = 3;
 }
 
-message ProductMany {
-    repeated Product productMany = 1;
-}
-
 message CustomerBought {
     string product = 1;
     string customer = 2;
@@ -31,9 +27,6 @@ message Customer {
     int64 products = 2;
 }
 
-message CustomerMany {
-    repeated Customer customerMany = 1;
-}
 
 message Status {
     uint32 status = 1;
@@ -47,6 +40,6 @@ service Publisher {
 }
 
 service Inspector {
-    rpc InspectProduct(Empty) returns (ProductMany) {}
-    rpc InspectCustomer(Empty) returns (CustomerMany) {}
+    rpc InspectProduct(Empty) returns (stream Product) {}
+    rpc InspectCustomer(Empty) returns (stream Customer) {}
 }
