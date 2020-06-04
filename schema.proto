@@ -1,6 +1,9 @@
 syntax = "proto3";
+option go_package = "github.com/MicrexIT/schema";
 
 package schema;
+
+import "google/api/annotations.proto";
 
 message ProductWatched {
     string product = 1;
@@ -35,11 +38,31 @@ message Status {
 message Empty {}
 
 service Publisher {
-    rpc PublishProduct(ProductWatched) returns (Status) {}
-    rpc PublishCustomer(CustomerBoughtMany) returns (Status) {}
+    rpc PublishProduct(ProductWatched) returns (Status) {
+        option (google.api.http) = {
+            post: "/v1/product/{name}/watched"
+            body: "*"
+        };
+    }
+
+    rpc PublishCustomer(CustomerBoughtMany) returns (Status) {
+        option (google.api.http) = {
+            post: "/v1/customer/{name}/bought"
+            body: "*"
+        };
+    }
 }
 
 service Inspector {
-    rpc InspectProduct(Empty) returns (stream Product) {}
-    rpc InspectCustomer(Empty) returns (stream Customer) {}
+    rpc InspectProduct(Empty) returns (stream Product) {
+        option (google.api.http) = {
+            get: "/v1/product/inspect"
+        };
+
+    }
+    rpc InspectCustomer(Empty) returns (stream Customer) {
+         option (google.api.http) = {
+            get: "/v1/customer/inspect"
+        };
+    }
 }
