@@ -40,14 +40,14 @@ message Empty {}
 service Publisher {
     rpc PublishProduct(ProductWatched) returns (Status) {
         option (google.api.http) = {
-            post: "/v1/product/{name}/watched"
+            post: "/v1/product/{product}/watched/{visitor}"
             body: "*"
         };
     }
 
     rpc PublishCustomer(CustomerBoughtMany) returns (Status) {
         option (google.api.http) = {
-            post: "/v1/customer/{name}/bought"
+            post: "/v1/customer/bought"
             body: "*"
         };
     }
